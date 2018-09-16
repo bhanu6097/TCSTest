@@ -16,49 +16,37 @@ class Userdata extends Component {
   onChange = (event, type) => {
     var errorValue;
     if (type === "email") {
-      console.log("Inside email validation ::" + event.target.label);
       this.setState({ Email: event.target.value });
     }
     if (type === "select") {
-      console.log("Inside select validation ::" + event.target.name);
       this.setState({ stateValue: event.target.value });
     }
 
     if (type === "radio") {
-      console.log("Inside radio validation ::" + event);
       this.setState({ radio: event });
     }
     if (type === "telephone") {
-      console.log("Inside phone validation ::" + event);
       this.setState({ phone: event.target.value });
     }
   };
 
   validationCheck = () => {
-    console.log("validationCheck::");
     var errorValue;
     let validEmail = this.state.Email;
     let validPhone = this.state.phone;
-    console.log("Printing ValidEmail::" + validEmail);
-    console.log("Printing validPhone::" + validPhone);
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var phnRegex = /^[0-9]{10}$/;
     if (validEmail !== null && validEmail !== undefined) {
-      console.log("inside if cond of emialcheck");
       if (re.test(validEmail)) {
-        console.log("Inside if email validation happened and true::");
         errorValue = false;
         return errorValue;
       }
     } else {
-      console.log("Inside else block");
       errorValue = true;
       return errorValue;
     }
     if (validPhone !== null) {
-      console.log("Inside phone validation");
       if (phnRegex.test(validPhone)) {
-        console.log("Inside if phone validation happened and true::");
         errorValue = false;
         return errorValue;
       }
@@ -69,9 +57,7 @@ class Userdata extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log("I am inside the submit function");
     var check = this.validationCheck();
-    console.log("printing Check ::" + check);
     this.setState({ error: check });
     if (!check) {
       var j = {
