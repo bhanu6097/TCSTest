@@ -63,9 +63,7 @@ class Userdata extends Component {
       var j = {
         Email: this.state.Email
       };
-      var formData = JSON.stringify($("#Form").serializeArray());
-
-      alert(formData);
+      alert(JSON.stringify(j));
     }
   };
 
