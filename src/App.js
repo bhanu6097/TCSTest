@@ -33,6 +33,7 @@ class App extends React.Component {
           className="form"
           name={this.state.name}
           title="Registration"
+          /* model= {this.state.model} */
           model={[
             {
               label: "Email address",
