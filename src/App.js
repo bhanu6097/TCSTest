@@ -11,6 +11,20 @@ class App extends React.Component {
       model: []
     };
   }
+  //The Below URL is giving an error so hardcoded the data.If the url is working fine uncomment the below code and try.
+  /* componentDidMount() {
+    axios
+      .get("https://ansible-template-engine.herokuapp.com/form")
+      .then(results => {
+        let result = results.data.map((e, i) => {
+          return e;
+        });
+        this.setState({ model: result });
+      })
+      .catch(error => {
+        console.log("Bhanu::" + error);
+      });
+  } */
 
   render() {
     return (
